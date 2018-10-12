@@ -1,5 +1,5 @@
 {
-  "name": "tinfot/faceplusplus-laravel",
+  "name": "tinfot/faceplusplus",
   "description": "Face Plus Plus For Laravel",
   "type": "library",
   "require": {
@@ -31,10 +31,10 @@
   "extra": {
     "laravel": {
       "providers": [
-        "Tinfor\\Faceplusplus\\FaceplusplusServiceProvider"
+        "Tinfot\\Faceplusplus\\FaceplusplusServiceProvider"
       ],
       "aliases": {
-        "Faceplusplus": "Tinfor\\Faceplusplus\\Facades\\Faceplusplus"
+        "Faceplusplus": "Tinfot\\Faceplusplus\\Facades\\Faceplusplus"
       }
     }
   },
