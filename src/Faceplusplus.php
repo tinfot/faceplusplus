@@ -53,4 +53,23 @@ class Faceplusplus {
         ]);
         return $response->getBody()->getContents();
     }
+
+    /**
+     * Get human body by image url.
+     *
+     * @param string $image_url
+     *
+     * @return string
+     */
+    public function humanBodyByImageUrl(string $image_url) {
+        $client   = new Client();
+        $response = $client->post("https://api-cn.faceplusplus.com/humanbodypp/v2/segment", [
+            'form_params' => [
+                'api_key'    => $this->api_key,
+                'api_secret' => $this->api_secret,
+                'image_url'  => $image_url
+            ],
+        ]);
+        return $response->getBody()->getContents();
+    }
 }
