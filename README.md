@@ -17,7 +17,11 @@ composer require tinfot/faceplusplus
 ```php
 <?php
 
+// Base64
 \Tinfot\Faceplusplus\Facades\Faceplusplus::humanBodyByBase64("data:image/jpeg;base64,......");
+
+// Image url
+\Tinfot\Faceplusplus\Facades\Faceplusplus::humanBodyByImageUrl("https://google.com/image.jpg");
 
 ```
 
