@@ -23,6 +23,12 @@ composer require tinfot/faceplusplus
 // Image url
 \Tinfot\Faceplusplus\Facades\Faceplusplus::humanBodyByImageUrl("https://google.com/image.jpg");
 
+// Human beautify
+\Tinfot\Faceplusplus\Facades\Faceplusplus::faceBeautifyByBase64("data:image/jpeg;base64,......");
+
+// Human beautify by image url
+\Tinfot\Faceplusplus\Facades\Faceplusplus::faceBeautifyByImageUrl("https://google.com/image.jpg");
+
 ```
 
 # Support
