@@ -10,7 +10,7 @@
          processIsolation="false"
          stopOnFailure="false">
     <testsuites>
-        <testsuite name="Faceplusplus Test Suite">
+        <testsuite name="FacePlusplus Test Suite">
             <directory>tests</directory>
         </testsuite>
     </testsuites>

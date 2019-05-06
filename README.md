@@ -3,13 +3,13 @@
 
 ---
 
-[![License](https://poser.pugx.org/maatwebsite/excel/license.png)](https://packagist.org/packages/tinfot/faceplusplus)
+[![License](https://poser.pugx.org/maatwebsite/excel/license.png)](https://packagist.org/packages/tinfot/FacePlusplus)
 
 # Installation
 Require this package in your composer.json and update composer. 
 
 ```php
-composer require tinfot/faceplusplus
+composer require tinfot/FacePlusplus
 ```
 
 # Usage
@@ -18,16 +18,16 @@ composer require tinfot/faceplusplus
 <?php
 
 // Base64
-\Tinfot\Faceplusplus\Facades\Faceplusplus::humanBodyByBase64("data:image/jpeg;base64,......");
+\Tinfot\FacePlusplus\Facades\FacePlusplus::humanBodyByBase64("data:image/jpeg;base64,......");
 
 // Image url
-\Tinfot\Faceplusplus\Facades\Faceplusplus::humanBodyByImageUrl("https://google.com/image.jpg");
+\Tinfot\FacePlusplus\Facades\FacePlusplus::humanBodyByImageUrl("https://google.com/image.jpg");
 
 // Human beautify
-\Tinfot\Faceplusplus\Facades\Faceplusplus::faceBeautifyByBase64("data:image/jpeg;base64,......");
+\Tinfot\FacePlusplus\Facades\FacePlusplus::faceBeautifyByBase64("data:image/jpeg;base64,......");
 
 // Human beautify by image url
-\Tinfot\Faceplusplus\Facades\Faceplusplus::faceBeautifyByImageUrl("https://google.com/image.jpg");
+\Tinfot\FacePlusplus\Facades\FacePlusplus::faceBeautifyByImageUrl("https://google.com/image.jpg");
 
 ```
 
