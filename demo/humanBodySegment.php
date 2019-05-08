@@ -1,23 +1,20 @@
 <?php
 
-require "../vendor/autoload.php";
+require dirname(__FILE__) . "/../vendor/autoload.php";
 
 use Tinfot\FacePlusplus\FacePlusplus;
 
 $face = new FacePlusplus([
-    'api_key'    => 'vZ71hpGiK7Gyy18UfA4w2rjNpSwam2a7',
-    'api_secret' => 'wQrX4K2mQ49MwkNO2QDxTQtAiNrMNKr3'
+    'api_key'    => '',
+    'api_secret' => ''
 ]);
 
-$base64 = "data:image/png;base64,...";
-$result = $face->getHumanBodySegment($base64);
-print_r($result);
+$resource = dirname(__FILE__) . '/../resources/demo-pic75.jpg';
+$file     = fopen($resource, 'r');
+$base64   = base64_encode(file_get_contents($resource));
+$url      = "https://cdn.faceplusplus.com.cn/mc-official/scripts/demoScript/images/demo-pic75.jpg";
 
-$url    = "http://xxxx.com/image.jpg";
 $result = $face->getHumanBodySegment($url);
-print_r($result);
-
-$file   = file_get_contents("http://xxx.com/image.jpg");
-$result = $face->getHumanBodySegment($file);
+fclose($file);
 print_r($result);
 

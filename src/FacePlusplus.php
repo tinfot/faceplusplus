@@ -86,24 +86,29 @@ class FacePlusplus {
     {
         $url = "https://api-cn.faceplusplus.com/humanbodypp/v2/segment";
 
-        $params = array_filter([
-            'api_key'    => $this->apiKey,
-            'api_secret' => $this->apiSecret,
-        ]);
-
-        $form_params = array_merge($params, [
-            $this->analyticImageParameter($image) => $image
-        ]);
+        $parameters = [
+            [
+                'name'     => 'api_key',
+                'contents' => $this->apiKey,
+            ],
+            [
+                'name'     => 'api_secret',
+                'contents' => $this->apiSecret,
+            ],
+            [
+                'name'     => $this->analyticImageParameter($image),
+                'contents' => $image
+            ],
+        ];
 
         try {
             $response = $this->getHttpClient()->post($url, [
-                'form_params' => $form_params,
+                'multipart' => $parameters,
             ])->getBody()->getContents();
+            return \json_decode($response, true);
         } catch (\Exception $exception) {
             throw new HttpException($exception->getMessage(), $exception->getCode(), $exception);
         }
-
-        return \json_decode($response, true);
     }
 
     /**
@@ -120,25 +125,36 @@ class FacePlusplus {
     {
         $url = "https://api-cn.faceplusplus.com/facepp/v1/beautify";
 
-        $params = array_filter([
-            'api_key'    => $this->apiKey,
-            'api_secret' => $this->apiSecret,
-            'whitening'  => $whitening,
-            'smoothing'  => $smoothing,
-        ]);
-
-        $form_params = array_merge($params, [
-            $this->analyticImageParameter($image) => $image
-        ]);
+        $parameters = [
+            [
+                'name'     => 'api_key',
+                'contents' => $this->apiKey,
+            ],
+            [
+                'name'     => 'api_secret',
+                'contents' => $this->apiSecret,
+            ],
+            [
+                'name'     => 'whitening',
+                'contents' => $whitening,
+            ],
+            [
+                'name'     => 'smoothing',
+                'contents' => $smoothing,
+            ],
+            [
+                'name'     => $this->analyticImageParameter($image),
+                'contents' => $image
+            ],
+        ];
 
         try {
             $response = $this->getHttpClient()->post($url, [
-                'form_params' => $form_params,
+                'multipart' => $parameters,
             ])->getBody()->getContents();
-        }catch (\Exception $exception){
+            return \json_decode($response, true);
+        } catch (\Exception $exception) {
             throw new HttpException($exception->getMessage(), $exception->getCode(), $exception);
         }
-
-        return \json_decode($response, true);
     }
 }

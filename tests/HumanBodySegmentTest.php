@@ -8,8 +8,18 @@ use PHPUnit\Framework\TestCase;
 
 class HumanBodySegmentTest extends TestCase {
 
+    /**
+     * @throws HttpException
+     */
     public function testGetHumanBodySegment()
     {
+        $facePlusplus = new FacePlusplus([
+            'api_key' => '',
+            'api_secret' => ''
+        ]);
+
+        $response = $facePlusplus->getHumanBodySegment("data:image/png;base64,...");
+
 
     }
 
@@ -26,6 +36,9 @@ class HumanBodySegmentTest extends TestCase {
     {
     }
 
+    /**
+     * @throws HttpException
+     */
     public function testGetHumanBodySegmentWithInvalidImage()
     {
         $facePlusplus = new FacePlusplus([
