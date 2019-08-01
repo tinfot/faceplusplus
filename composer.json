@@ -1,47 +1,42 @@
 {
-  "name": "tinfot/faceplusplus",
-  "description": "Face Plus Plus For Laravel",
-  "type": "library",
-  "require": {
-    "php": ">=7.1"
-  },
-  "license": "MIT",
-  "authors": [
-    {
-      "name": "Richard",
-      "email": "richard_tianke@qq.com"
+    "name": "tinfot/faceplusplus",
+    "description": "Face Plus Plus For Laravel",
+    "type": "library",
+    "require": {
+        "php": ">=7.1",
+        "guzzlehttp/guzzle": "^6.3"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Richard",
+            "email": "richard_tianke@qq.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "autoload": {
+        "psr-4": {
+            "Tinfot\\Faceplusplus\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tinfot\\Faceplusplus\\Test\\": "tests/"
+        }
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^7.3@dev",
+        "orchestra/testbench": "^3.7"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Tinfot\\Faceplusplus\\FaceplusplusServiceProvider"
+            ],
+            "aliases": {
+                "Faceplusplus": "Tinfot\\Faceplusplus\\Facades\\Faceplusplus"
+            }
+        }
     }
-  ],
-  "minimum-stability": "dev",
-  "prefer-stable": true,
-  "autoload": {
-    "psr-4": {
-      "Tinfot\\Faceplusplus\\": "src"
-    }
-  },
-  "autoload-dev": {
-    "psr-4": {
-      "Tinfot\\Faceplusplus\\Test\\": "tests/"
-    }
-  },
-  "require-dev": {
-    "phpunit/phpunit": "^7.3@dev",
-    "orchestra/testbench": "^3.7"
-  },
-  "extra": {
-    "laravel": {
-      "providers": [
-        "Tinfot\\Faceplusplus\\FaceplusplusServiceProvider"
-      ],
-      "aliases": {
-        "Faceplusplus": "Tinfot\\Faceplusplus\\Facades\\Faceplusplus"
-      }
-    }
-  },
-  "repositories": {
-    "packagist": {
-      "type": "composer",
-      "url": "https://packagist.laravel-china.org"
-    }
-  }
 }
