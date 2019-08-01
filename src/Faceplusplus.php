@@ -114,4 +114,42 @@ class Faceplusplus {
         ]);
         return $response->getBody()->getContents();
     }
+
+    /**
+     * @param string $image_base64_1
+     * @param string image_base64_1
+     *
+     * @return string
+     */
+    public function faceCompareByBase64(string $image_base64_1, string $image_base64_2) {
+        $client   = new Client();
+        $response = $client->post("https://api-cn.faceplusplus.com/facepp/v3/compare", [
+            'form_params' => [
+                'api_key'        => $this->api_key,
+                'api_secret'     => $this->api_secret,
+                'image_base64_1' => $image_base64_1,
+                'image_base64_2' => $image_base64_2,
+            ],
+        ]);
+        return $response->getBody()->getContents();
+    }
+
+    /**
+     * @param string $image_url1
+     * @param string $image_url2
+     *
+     * @return string
+     */
+    public function faceCompareByImageUrl(string $image_url1, string $image_url2) {
+        $client   = new Client();
+        $response = $client->post("https://api-cn.faceplusplus.com/facepp/v3/compare", [
+            'form_params' => [
+                'api_key'    => $this->api_key,
+                'api_secret' => $this->api_secret,
+                'image_url1' => $image_url1,
+                'image_url2' => $image_url2,
+            ],
+        ]);
+        return $response->getBody()->getContents();
+    }
 }
