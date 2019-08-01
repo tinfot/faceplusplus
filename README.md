@@ -8,6 +8,9 @@
 Need register account on the Face ++ website.
 [SDK document](https://www.faceplusplus.com/), Get the `API_KEY` & `API_SECRET`.
 
+![](./assets/get_api_key.png)
+
+
 ## Installation
 Require this package in your composer.json and update composer. 
 
@@ -21,11 +24,14 @@ composer require tinfot/faceplusplus
 #### 1. Provider config file. `faceplusplus.php`
 
 ```bash
-php artisan vendor:publish --provider="Tinfot\Faceplusplu\FaceplusplusServiceProvider" 
+php artisan vendor:publish --provider="Tinfot\Faceplusplus\FaceplusplusServiceProvider" 
 ```
 
 #### 2. Enter your `APPKEY` and `APPSECRET` 
 ```dotenv
+FPP_BASE_URL=https://api-cn.faceplusplus.com # If your location in china.
+# FPP_BASE_URL=https://api-us.faceplusplus.com # Or other location.
+
 FPP_API_KEY=xxxx
 FPP_API_SECRET=xxx
 ```

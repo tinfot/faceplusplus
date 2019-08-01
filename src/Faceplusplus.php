@@ -7,12 +7,17 @@ use GuzzleHttp\Client;
 class Faceplusplus {
 
     /**
-     * @var mixed
+     * @var string
+     */
+    private $base_url;
+
+    /**
+     * @var string
      */
     private $api_key;
 
     /**
-     * @var mixed
+     * @var string
      */
     private $api_secret;
 
@@ -22,6 +27,7 @@ class Faceplusplus {
      * @param array $config
      */
     public function __construct($config = []) {
+        $this->base_url   = $config['base_url'];
         $this->api_key    = $config['api_key'];
         $this->api_secret = $config['api_secret'];
     }
@@ -44,7 +50,7 @@ class Faceplusplus {
      */
     public function humanBodyByBase64(string $image_base64) {
         $client   = new Client();
-        $response = $client->post("https://api-cn.faceplusplus.com/humanbodypp/v2/segment", [
+        $response = $client->post("{$this->base_url}/humanbodypp/v2/segment", [
             'form_params' => [
                 'api_key'      => $this->api_key,
                 'api_secret'   => $this->api_secret,
@@ -63,7 +69,7 @@ class Faceplusplus {
      */
     public function humanBodyByImageUrl(string $image_url) {
         $client   = new Client();
-        $response = $client->post("https://api-cn.faceplusplus.com/humanbodypp/v2/segment", [
+        $response = $client->post("{$this->base_url}/humanbodypp/v2/segment", [
             'form_params' => [
                 'api_key'    => $this->api_key,
                 'api_secret' => $this->api_secret,
@@ -82,7 +88,7 @@ class Faceplusplus {
      */
     public function faceBeautifyByBase64(string $image_base64, int $whitening = 100, int $smoothing = 100) {
         $client   = new Client();
-        $response = $client->post("https://api-cn.faceplusplus.com/facepp/beta/beautify", [
+        $response = $client->post("{$this->base_url}/facepp/beta/beautify", [
             'form_params' => [
                 'api_key'      => $this->api_key,
                 'api_secret'   => $this->api_secret,
@@ -103,7 +109,7 @@ class Faceplusplus {
      */
     public function faceBeautifyByImageUrl(string $image_url, int $whitening = 100, int $smoothing = 100) {
         $client   = new Client();
-        $response = $client->post("https://api-cn.faceplusplus.com/facepp/beta/beautify", [
+        $response = $client->post("{$this->base_url}/facepp/beta/beautify", [
             'form_params' => [
                 'api_key'    => $this->api_key,
                 'api_secret' => $this->api_secret,
@@ -123,7 +129,7 @@ class Faceplusplus {
      */
     public function faceCompareByBase64(string $image_base64_1, string $image_base64_2) {
         $client   = new Client();
-        $response = $client->post("https://api-cn.faceplusplus.com/facepp/v3/compare", [
+        $response = $client->post("{$this->base_url}/facepp/v3/compare", [
             'form_params' => [
                 'api_key'        => $this->api_key,
                 'api_secret'     => $this->api_secret,
@@ -142,7 +148,7 @@ class Faceplusplus {
      */
     public function faceCompareByImageUrl(string $image_url1, string $image_url2) {
         $client   = new Client();
-        $response = $client->post("https://api-cn.faceplusplus.com/facepp/v3/compare", [
+        $response = $client->post("{$this->base_url}/facepp/v3/compare", [
             'form_params' => [
                 'api_key'    => $this->api_key,
                 'api_secret' => $this->api_secret,
